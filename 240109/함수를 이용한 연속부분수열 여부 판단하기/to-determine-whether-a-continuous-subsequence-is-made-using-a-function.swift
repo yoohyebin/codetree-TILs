@@ -1,5 +1,5 @@
 func solution(_ a: [Int], _ b: [Int]) -> String {
-    for i in 0..<(a.count-b.count) {
+    for i in 0...(a.count-b.count) {
         if Array(a[i..<i+b.count]) == b {
             return "Yes"
         }
