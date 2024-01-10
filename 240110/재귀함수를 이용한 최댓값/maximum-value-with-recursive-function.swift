@@ -1,9 +1,9 @@
 func solution(_ n: Int) -> Int {
     if n == 0 {
-        return 0
+        return arr[n]
     }
 
-    return arr[n] > solution(n-1) ? arr[n] : solution(n-1)
+    return max(arr[n], solution(n-1))
 }
 
 let n = Int(readLine()!)!
