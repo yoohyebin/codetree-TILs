@@ -12,6 +12,10 @@ for _ in 0..<n {
     }
 }
 
-var offset = starts.filter{ends.contains($0)}.count
+for s in starts {
+    if ends.contains(s) {
+        arr[s+100] -= 1
+    }
+}
 
-print((arr.max() ?? 0) - offset)
+print(arr.max() ?? 0)
