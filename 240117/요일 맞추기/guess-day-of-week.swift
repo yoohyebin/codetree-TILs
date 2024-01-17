@@ -8,15 +8,12 @@ if m1 <= m2 {
     for i in m1..<m2 {
         day += num_of_days[i]
     }
-    day += (d2-d1)
 } else {
     for i in m2..<m1 {
-        day += num_of_days[i]
+        day -= num_of_days[i]
     }
-    day += (d1-d2)
 }
 
-if day < 0 {
-    day += 7
-}
-print(days[day%7])
+day += (d2-d1)
+
+print(days[day<0 ? (7+day%7) : day%7])
