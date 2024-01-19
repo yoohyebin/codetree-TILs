@@ -9,13 +9,13 @@ for _ in  0..<n {
             arr[i+100000].black += 1
             arr[i+100000].color = "black"
         }
-        current += Int(input[0])!
+        current += Int(input[0])!-1
     } else {
-        for i in current-Int(input[0])!..<current {
+        for i in current-Int(input[0])!+1...current {
             arr[i+100000].white += 1
             arr[i+100000].color = "white"
         }
-        current -= Int(input[0])!
+        current -= (Int(input[0])!-1)
     }
 }
 
