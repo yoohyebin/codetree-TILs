@@ -17,7 +17,7 @@ for _ in 0..<n {
 
 var doubleWidth = 0
 for i in 0..<arr.count {
-    doubleWidth += arr[i].filter{$0 == 2}.count
+    doubleWidth += arr[i].filter{$0 >= 2}.count
 }
 
 print(sum-doubleWidth+5)
