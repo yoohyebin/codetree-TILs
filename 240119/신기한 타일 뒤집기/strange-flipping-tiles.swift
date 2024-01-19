@@ -8,12 +8,12 @@ for _ in  0..<n {
         for i in current..<current+Int(input[0])! {
             arr[i+100000] = 1
         }
-        current += Int(input[0])!
+        current += Int(input[0])!-1
     } else {
-        for i in current-Int(input[0])!..<current {
+        for i in current-Int(input[0])!+1...current {
             arr[i+100000] = 2
         }
-        current -= Int(input[0])!
+        current -= (Int(input[0])!-1)
     }
 }
 
