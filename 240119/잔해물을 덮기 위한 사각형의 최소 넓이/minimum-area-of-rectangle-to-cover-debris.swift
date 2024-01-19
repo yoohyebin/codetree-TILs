@@ -6,20 +6,23 @@ for n in 0..<2 {
     
     for i in x1..<x2 {
         for j in y1..<y2 {
-            arr[i+1000][j+1000] = n+1
+            arr[j+1000][i+1000] = n+1
         }
     }
 }
 
-var x = 0, y = 0
+var x1 = Int.max, x2 = 0 ,y = 0
 for i in 0..<arr.count {
     let n = arr[i].filter{$0 == 1}.count
     
     if n != 0 {
-        x += 1
+        if x1 == Int.max {
+            x1 = i
+        }
+        x2 = max(x2, i)
         y = max(y, n)
     }
     
 }
 
-print(x*y)
+print((x2-x1+1)*y)
