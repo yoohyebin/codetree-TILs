@@ -15,10 +15,14 @@ for a in arr.sorted{$0.t < $1.t} {
         person[a.y] -= 1
     }else if person[a.x] > 0 {
         person[a.x] -= 1
-        person[a.y] = k
+        if person[a.y] == -1 {
+            person[a.y] = k
+        }
     } else if person[a.y] > 0 {
         person[a.y] -= 1
-        person[a.x] = k
+        if person[a.x] == -1 {
+            person[a.x] = k
+        }
     }
 }
 
