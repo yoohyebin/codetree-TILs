@@ -13,4 +13,4 @@ for _ in 0..<n {
     }
 }
 
-print(result)
+print(max(result, cnt))
