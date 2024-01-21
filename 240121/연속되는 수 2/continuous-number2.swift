@@ -1,6 +1,6 @@
 let n = Int(readLine()!)!
 var prev = -1
-var cnt = 0, result = 0
+var cnt = 1, result = 0
 
 for _ in 0..<n {
     let a = Int(readLine()!)!
