@@ -26,4 +26,4 @@ for s in input {
     }
 }
 
-print(result.x, result.y
+print(result.x, result.y)
