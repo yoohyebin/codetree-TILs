@@ -8,15 +8,17 @@ var dirIndex = 0
 var (x,y) = (0,0)
 arr[0][0] = 1
 
-for i in 2...n*m {
-    let (nx, ny) = (x+dx[dirIndex], y+dy[dirIndex])
-    
-    if nx<0 || nx>=n || ny<0 || ny>=m || arr[nx][ny] != 0 {
-        dirIndex = (dirIndex+1)%4
+if n*m >= 2 {
+    for i in 2...n*m {
+        let (nx, ny) = (x+dx[dirIndex], y+dy[dirIndex])
+        
+        if nx<0 || nx>=n || ny<0 || ny>=m || arr[nx][ny] != 0 {
+            dirIndex = (dirIndex+1)%4
+        }
+        
+        (x, y) = (x+dx[dirIndex], y+dy[dirIndex])
+        arr[x][y] = i
     }
-    
-    (x, y) = (x+dx[dirIndex], y+dy[dirIndex])
-    arr[x][y] = i
 }
 
 for i in 0..<n {
