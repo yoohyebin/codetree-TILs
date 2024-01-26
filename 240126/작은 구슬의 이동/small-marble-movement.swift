@@ -10,10 +10,10 @@ if d == "R" {
     (x,y) = (dx[0], dy[0])
 } else if d == "L" {
     (x,y) = (dx[1], dy[1])
-} else if d == "D" {
+} else if d == "U" {
     (x,y) = (dx[2], dy[2])
 } else {
-    (x,y) = (dx[4], dy[4])
+    (x,y) = (dx[3], dy[3])
 }
 
 for _ in 0..<t {
