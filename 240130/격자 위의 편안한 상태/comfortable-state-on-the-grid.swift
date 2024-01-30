@@ -11,7 +11,7 @@ for _ in 0..<m {
     let (r,c) = (input[0], input[1])
     var cnt = 0
     
-    arr[r-1][c-1] = true
+    arr[r][c] = true
     
     for i in 0..<4 {
         let (nx, ny) = (r+dx[i], c+dy[i])
