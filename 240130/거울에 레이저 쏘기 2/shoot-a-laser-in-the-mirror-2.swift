@@ -15,15 +15,15 @@ var (x,y) = (0,0)
 
 switch index {
 case 0:
-    y = (k-1)%n
+    y = (k-1)
 case 1:
-    x = (k-1)%n
+    x = (k-n-1)
     y = n-1
 case 2:
     x = n-1
-    y = k%n
+    y = n-(k-2*n)
 default:
-    x = k%n
+    x = n-(k-3*n)
 }
 
 var result = 0
