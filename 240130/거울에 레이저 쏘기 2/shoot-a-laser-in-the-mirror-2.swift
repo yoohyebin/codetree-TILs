@@ -1,4 +1,4 @@
-let dx = [-1, 0, 1, 0]
+let dx = [1, 0, -1, 0]
 let dy = [0, -1, 0, 1]
 
 let n = Int(readLine()!)!
@@ -15,15 +15,15 @@ var (x,y) = (0,0)
 
 switch index {
 case 0:
-    x = (k-1)%n
-case 1:
-    x = n-1
     y = (k-1)%n
-case 2:
-    x = k%n
+case 1:
+    x = (k-1)%n
     y = n-1
-default:
+case 2:
+    x = n-1
     y = k%n
+default:
+    x = k%n
 }
 
 var result = 0
@@ -42,4 +42,4 @@ while x>=0, x<n, y>=0, y<n {
     result += 1
 }
 
-print(result-1)
+print(result)
