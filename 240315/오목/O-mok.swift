@@ -19,7 +19,7 @@ func solution() {
                     let nx = x+dxs[idx]
                     let ny = y+dys[idx]
                     
-                    if nx<0 || nx>19 || ny<0 || ny>19 {break}
+                    if nx<0 || nx>=19 || ny<0 || ny>=19 {break}
                     if arr[nx][ny] != arr[i][j] {break}
                     
                     cnt += 1
