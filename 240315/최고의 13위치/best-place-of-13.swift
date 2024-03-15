@@ -8,7 +8,7 @@ for _ in 0..<n {
 
 for i in 0..<n {
     for j in 0..<n-2 {
-        let cnt = arr[i][j..<j+3].filter{$0 == 1}.count
+        let cnt = arr[i][j]+arr[i][j+1]+arr[i][j+2]
         result = max(result, cnt)
     }
 }
