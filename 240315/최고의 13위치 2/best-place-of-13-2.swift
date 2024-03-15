@@ -10,7 +10,7 @@ for i in 0..<n {
     for j in 0..<n-2 {
         for k in 0..<n{
             for l in 0..<n-2{
-                if i == k && (l<=j && l+3 >= j) || (l>=j && j+3>=l) {
+                if i == k && abs(j - l) <= 2 {
                     continue
                 }
                 
