@@ -5,9 +5,11 @@ let arrB = readLine()!.split(separator: " ").map{Int(String($0))!}
 
 var result = 0
 
-for i in 0...n-m {
-    if arrA[i..<i+m].sorted() == arrB.sorted() {
-        result += 1
+if n <= m {
+    for i in 0...n-m {
+        if arrA[i..<i+m].sorted() == arrB.sorted() {
+            result += 1
+        }
     }
 }
 
