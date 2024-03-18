@@ -5,7 +5,7 @@ let arr = readLine()!.split(separator: " ").map{abs(h-Int(String($0))!)}
 var result = Int.max
 
 for i in 0...n-t {
-    result = min(result, arr[i..<i+t].reduce(0,+)
+    result = min(result, arr[i..<i+t].reduce(0,+))
 }
 
 print(result)
