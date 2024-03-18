@@ -8,8 +8,16 @@ for _ in 0..<n {
     arr[input[1]] += input[0]
 }
 
-for i in 0...100-(2*k) {
-    result = max(result, arr[i...i+(2*k)].reduce(0, +))
+for i in 0...100 {
+    var sum = 0
+
+    for j in i-k...i+k {
+        if j >= 0, j <= 100 {
+            sum += arr[j]
+        }
+    }
+
+    result = max(result, sum)
 }
 
 print(result)
