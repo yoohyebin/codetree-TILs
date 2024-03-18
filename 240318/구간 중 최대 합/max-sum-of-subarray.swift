@@ -4,7 +4,7 @@ let arr = readLine()!.split(separator: " ").map{Int(String($0))!}
 
 var result = 0
 
-for i in 0..<n-k {
+for i in 0...n-k {
     result = max(result, arr[i..<i+k].reduce(0,+))
 }
 print(result)
