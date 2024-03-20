@@ -1,7 +1,6 @@
 let n = Int(readLine()!)!
 var arr = [(x: Int, y: Int)]()
 var result = Int.max
-var result = 0
 
 for _ in 0..<n {
     let input = readLine()!.split(separator: " ").map{Int(String($0))!}
