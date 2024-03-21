@@ -28,7 +28,7 @@ for i in 1...m {
     var flag = true
     
     for s in sick {
-        if time[s.p] == Int.max {
+        if time[s.p] == Int.max || time[s.p] >= s.t {
             flag = false
         }
     }
