@@ -1,6 +1,6 @@
 let n = Int(readLine()!)!
 var arr = [(x1: Int, x2: Int)]()
-var result = n
+var result = 0
 
 for _ in 0..<n {
     let input = readLine()!.split(separator: " ").map{Int(String($0))!}
@@ -12,15 +12,20 @@ arr.sort(by: {
 })
 
 var a = [Int]()
-for i in 0..<n-1 {
-    for j in i+1..<n {
-        if arr[j].x1 >= arr[i].x1 && arr[j].x1 < arr[i].x2 {
-            if !a.contains(j) {
-                result -= 1
-                a.append(j)
-            }
+for i in 0..<n {
+    var overlap = false
+
+    for j in 0..<n {
+        if i == j {
+            continue
+        }
+
+        if (arr[i].x1 <= arr[j].x1 && arr[i].x2 >= arr[j].x2) || (arr[i].x1 >= arr[j].x1 && arr[i].x2 <= arr[j].x2) {
+            overlap = true
+            break
         }
     }
+    result += overlap ? 0 : 1
 }
 
 print(result)
