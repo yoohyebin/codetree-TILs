@@ -9,20 +9,13 @@ for _ in 0..<t {
 }
 
 for i in a...b {
-    let temp = arr.sorted(by: {abs($0.x - i) < abs($1.x-i) })
-    var d1 = 0, d2 = 0
+    var d1 = Int.max, d2 = Int.max
     
-    for j in temp {
-        if j.c == "S" {
-            d1 = j.x
-            break
-        }
-    }
-    
-    for j in temp {
-        if j.c == "N" {
-            d2 = j.x
-            break
+    for (c,x) in arr {
+        if c == "S" {
+            d1 = min(d1, abs(x-i))
+        } else {
+            d2 = min(d2, abs(x-i))
         }
     }
     
