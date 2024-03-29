@@ -10,9 +10,21 @@ for _ in 0..<t {
 
 for i in a...b {
     let temp = arr.sorted(by: {abs($0.x - i) < abs($1.x-i) })
+    var d1 = 0, d2 = 0
     
-    let d1 = temp.firstIndex(where: {$0.c == "S"}) ?? 0
-    let d2 = temp.firstIndex(where: {$0.c == "N"}) ?? 0
+    for j in temp {
+        if j.c == "S" {
+            d1 = j.x
+            break
+        }
+    }
+    
+    for j in temp {
+        if j.c == "N" {
+            d2 = j.x
+            break
+        }
+    }
     
     if d1 <= d2 {
         result += 1
