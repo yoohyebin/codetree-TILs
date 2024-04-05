@@ -6,7 +6,7 @@ for _ in 0..<n {
     arr.append(readLine()!.split(separator: " ").map{Int(String($0))!})
 }
 
-for i in 1...n {
+for i in 1...4 {
     var score = 0
     var yabawi = Array(repeating: false, count: 4)
     yabawi[i] = true
