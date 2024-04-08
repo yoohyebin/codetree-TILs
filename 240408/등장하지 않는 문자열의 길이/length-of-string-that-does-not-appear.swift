@@ -4,7 +4,7 @@ var result = 0
 
 for i in 0..<n-1{
     for j in 1...n-i {
-        if arr[i+j..<n].contains(arr[i..<i+j]) {
+        if arr[i+1..<n].contains(arr[i..<i+j]) {
             result = max(result, j+1)
         }
     }
