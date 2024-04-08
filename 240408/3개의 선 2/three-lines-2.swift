@@ -7,7 +7,7 @@ for _ in 0..<n {
     arr.append((input[0], input[1]))
 }
 
-for i in 0...10 {
+OUTLOOP: for i in 0...10 {
     for j in 0...10 {
         for k in 0...10 {
             var success = true
@@ -18,8 +18,11 @@ for i in 0...10 {
                 success = false
             }
             
-            result = success ? 1 : 0
-            
+            if success {
+                result = 1
+                break OUTLOOP
+            }
+    
             success = true
             for (x,y) in arr {
                 if x == i || x == j || y == k {
@@ -28,7 +31,10 @@ for i in 0...10 {
                 success = false
             }
             
-            result = success ? 1 : 0
+            if success {
+                result = 1
+                break OUTLOOP
+            }
             
             success = true
             for (x,y) in arr {
@@ -38,7 +44,10 @@ for i in 0...10 {
                 success = false
             }
             
-            result = success ? 1 : 0
+            if success {
+                result = 1
+                break OUTLOOP
+            }
             
             success = true
             for (x,y) in arr {
@@ -48,7 +57,10 @@ for i in 0...10 {
                 success = false
             }
             
-            result = success ? 1 : 0
+            if success {
+                result = 1
+                break OUTLOOP
+            }
         }
     }
 }
