@@ -16,7 +16,7 @@ for i in 0..<n {
                 cnt += abs(arr[k] - prev)
             }
             
-            prev = arr[i]
+            prev = arr[k]
         }
         
         result = min(result, cnt)
