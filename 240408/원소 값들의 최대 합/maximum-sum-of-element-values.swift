@@ -12,7 +12,7 @@ for i in 1...n {
         current = arr[current]
     }
     
-    result = max(result, current)
+    result = max(result, sum)
 }
 
 print(result)
