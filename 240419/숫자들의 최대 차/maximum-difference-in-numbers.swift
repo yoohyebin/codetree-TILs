@@ -10,12 +10,16 @@ for _ in 0..<n {
 arr.sort()
 
 for i in 0..<n-1 {
+    var cnt = 1
+    
     for j in i+1..<n {
-        if arr[j] - arr[i] > k {
-            result = max(result, j-i)
+        if arr[j] - arr[i] <= k {
+            cnt += 1
+        } else {
             break
         }
     }
+    result = max(cnt, result)
 }
 
 print(result)
