@@ -1,7 +1,7 @@
 let n = Int(readLine()!)!
 var arr = readLine()!.split(separator: " ").map{Int(String($0))!}
 
-for i in 0..<n-2 {
+for i in 0..<n-1 {
     for j in 0..<n-1 {
         if arr[j] > arr[j+1] {
             let temp = arr[j]
