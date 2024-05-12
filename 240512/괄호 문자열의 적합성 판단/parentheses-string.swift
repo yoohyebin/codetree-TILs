@@ -1,12 +1,14 @@
 let sValue = readLine()!.map{String($0)}
-var cnt = 0
+var stack = [String]()
 
 for s in sValue {
     if s == "(" {
-        cnt += 1
+        stack.append("(")
     } else {
-        cnt -= 1
+        if !stack.isEmpty {
+            stack.removeLast()
+        }
     }
 }
 
-print(cnt == 0 ? "Yes" : "No")
+print(stack.isEmpty ? "Yes" : "No")
