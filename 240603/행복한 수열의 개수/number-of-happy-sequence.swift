@@ -14,6 +14,8 @@ for i in 0..<n {
     for j in 1..<n {
         if arr[i][j-1] == arr[i][j] {
             cnt += 1
+        } else {
+            cnt = 1
         }
         
         max_cnt = max(max_cnt, cnt)
@@ -31,6 +33,8 @@ for i in 0..<n {
     for j in 1..<n {
         if arr[j-1][i] == arr[j][i] {
             cnt += 1
+        } else {
+            cnt = 1
         }
         
         max_cnt = max(max_cnt, cnt)
