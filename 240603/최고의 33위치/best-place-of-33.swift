@@ -6,15 +6,22 @@ for _ in 0..<n {
     arr.append(readLine()!.split(separator: " ").map{Int(String($0))!})
 }
 
-for i in 0..<n-2 {
-    var cnt = 0
-    for j in i..<i+3 {
-        for k in i..<i+3 {
-            if arr[j][k] == 1 {
-                cnt += 1
-            }
+func solution(_ row: Int, _ col: Int) -> Int {
+    var num = 0
+    
+    for r in row..<row+3 {
+        for c in col..<col+3 {
+            num += arr[r][c]
         }
     }
-    result = max(result, cnt)
+    
+    return num
 }
+
+for r in 0..<n-2 {
+    for c in 0..<n-2 {
+        result = max(result, solution(r,c))
+    }
+}
+
 print(result)
