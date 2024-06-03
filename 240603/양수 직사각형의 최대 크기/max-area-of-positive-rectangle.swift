@@ -19,10 +19,10 @@ func solution(_ x1: Int, _ y1: Int, _ x2: Int, _ y2: Int) -> Int {
     return (x2-x1+1) * (y2-y1+1)
 }
 
-for i in 0..<n-1 {
-    for j in 0..<m-1 {
-        for k in i+1..<n {
-            for l in j+1..<m {
+for i in 0..<n {
+    for j in 0..<m {
+        for k in i..<n {
+            for l in j..<m {
                 result = max(result, solution(i, j, k ,l))
             }
         }
