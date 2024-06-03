@@ -8,7 +8,7 @@ for _ in 0..<n {
 }
 
 for i in 0..<n {
-    for j in 0..<n {
+    for j in 0..<m {
         var maxValue = 0
         
         if j+2 < m {
