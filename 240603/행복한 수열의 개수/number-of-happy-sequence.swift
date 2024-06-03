@@ -8,10 +8,10 @@ for _ in 0..<n {
 }
 
 for i in 0..<n {
-    var prev = 0
-    var maxCnt = 0
+    var prev = arr[i][0]
+    var maxCnt = 1
     
-    for j in 0..<n {
+    for j in 1..<n {
         if prev == arr[i][j] {
             maxCnt += 1
         } else {
@@ -24,8 +24,8 @@ for i in 0..<n {
         result += 1
     }
     
-    prev = 0
-    maxCnt = 0
+    prev = arr[0][i]
+    maxCnt = 1
     
     for j in 0..<n {
         if prev == arr[j][i] {
