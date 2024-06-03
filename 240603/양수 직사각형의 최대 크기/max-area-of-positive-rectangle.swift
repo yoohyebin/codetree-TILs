@@ -10,7 +10,7 @@ for _ in 0..<n {
 func solution(_ x1: Int, _ y1: Int, _ x2: Int, _ y2: Int) -> Int {
     for x in x1...x2 {
         for y in y1...y2 {
-            if arr[x][y] < 0 {
+            if arr[x][y] <= 0 {
                 return -1
             }
         }
