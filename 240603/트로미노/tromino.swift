@@ -19,7 +19,7 @@ for i in 0..<n {
             maxValue = max(maxValue, arr[i][j]+arr[i+1][j]+arr[i+2][j])
         }
         
-        if i+1 <= n, j+1 <= n {
+        if i+1 < n, j+1 < n {
             maxValue = max(maxValue, arr[i][j]+arr[i+1][j]+arr[i+1][j+1])
             maxValue = max(maxValue, arr[i][j+1]+arr[i+1][j+1]+arr[i+1][j+1])
             maxValue = max(maxValue, arr[i][j]+arr[i][j+1]+arr[i+1][j])
