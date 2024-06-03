@@ -16,14 +16,10 @@ func solution(_ r: Int, _ c: Int) -> Int {
     
     for i in 0..<4 {
         if nr+dx[i] >= 0, nr+dx[i] < n, nc+dy[i] >= 0, nc+dy[i] < n  {
-            while true {
-                if nr+dx[i] >= 0, nr+dx[i] < n, nc+dy[i] >= 0, nc+dy[i] < n {
-                    sum += arr[nr][nc]
-                    nr += dx[i]
-                    nc += dy[i]
-                } else {
-                    break
-                }
+            while nr+dx[i] >= 0, nr+dx[i] < n, nc+dy[i] >= 0, nc+dy[i] < n {
+                nr += dx[i]
+                nc += dy[i]
+                sum += arr[nr][nc]
             }
         } else {
             return 0
