@@ -8,37 +8,38 @@ for _ in 0..<n {
 }
 
 for i in 0..<n {
-    var prev = arr[i][0]
-    var maxCnt = 1
+    var max_cnt = 1
+    var cnt = 1
     
     for j in 1..<n {
-        if prev == arr[i][j] {
-            maxCnt += 1
-        } else {
-            prev = arr[i][j]
-            maxCnt = 1
+        if arr[i][j-1] == arr[i][j] {
+            cnt += 1
         }
+        
+        max_cnt = max(max_cnt, cnt)
     }
     
-    if maxCnt >= m {
-        result += 1
-    }
-    
-    prev = arr[0][i]
-    maxCnt = 1
-    
-    for j in 0..<n {
-        if prev == arr[j][i] {
-            maxCnt += 1
-        } else {
-            prev = arr[j][i]
-            maxCnt = 1
-        }
-    }
-    
-    if maxCnt >= m {
+    if max_cnt >= m {
         result += 1
     }
 }
+
+for i in 0..<n {
+    var max_cnt = 1
+    var cnt = 1
+    
+    for j in 1..<n {
+        if arr[j-1][i] == arr[j][i] {
+            cnt += 1
+        }
+        
+        max_cnt = max(max_cnt, cnt)
+    }
+    
+    if max_cnt >= m {
+        result += 1
+    }
+}
+
 
 print(result)
