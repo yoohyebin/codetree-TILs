@@ -44,7 +44,7 @@ func calculateSum(_ x1: Int, _ y1: Int, _ x2: Int, _ y2: Int) -> Int {
 }
 
 func solution(_ x1: Int, _ y1: Int, _ x2: Int, _ y2: Int) -> Int {
-    var maxSum = 0
+    var maxSum = -Int.max
     
     for i in 0..<n {
         for j in 0..<m {
