@@ -75,6 +75,8 @@ else {
         
         result = arr
         cal_average(r1: r1, c1: c1, r2: r2, c2: c2)
+
+         arr = result
     }
     
     for i in 0..<n {
