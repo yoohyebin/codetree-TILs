@@ -25,7 +25,7 @@ else {
         arr[r1][c1...c2] = [0] + arr[r1][c1..<c2]
         
         let temp2 = arr[r2][c2]
-        for i in r1+2...r2 {
+        for i in stride(from: r1+2, through: r2, by: 1) {
             arr[i][c2] = arr[i-1][c2]
         }
         arr[r1+1][c2] = temp1
@@ -33,17 +33,17 @@ else {
         temp1 = arr[r2][c1]
         arr[r2][c1..<c2] = arr[r2][c1+1...c2-1] + [temp2]
         
-        for i in r1..<r2-1 {
+        for i in stride(from: r1, to: r2-1, by: 1) {
             arr[i][c1] = arr[i+1][c1]
         }
         arr[r2-1][c1] = temp1
     }
     
     func move(r1: Int, c1: Int, r2: Int, c2: Int) {
-        var temp1 = arr[r1][c1]
-        var temp2 = arr[r1][c2]
-        var temp3 = arr[r2][c2]
-        var temp4 = arr[r2][c1]
+        let temp1 = arr[r1][c1]
+        let temp2 = arr[r1][c2]
+        let temp3 = arr[r2][c2]
+        let temp4 = arr[r2][c1]
         
         arr[r1][c1] = temp4
         arr[r1][c2] = temp1
