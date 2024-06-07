@@ -28,7 +28,7 @@ else {
         }
         
         for c in c1..<c2 {
-            arr[r2][c] = arr[c2][c+1]
+            arr[r2][c] = arr[r2][c+1]
         }
         
         for r in stride(from: r2, to: r1, by: -1) {
