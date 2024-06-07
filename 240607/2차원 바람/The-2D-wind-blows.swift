@@ -39,6 +39,18 @@ else {
         arr[r2-1][c1] = temp1
     }
     
+    func move(r1: Int, c1: Int, r2: Int, c2: Int) {
+        var temp1 = arr[r1][c1]
+        var temp2 = arr[r1][c2]
+        var temp3 = arr[r2][c2]
+        var temp4 = arr[r2][c1]
+        
+        arr[r1][c1] = temp4
+        arr[r1][c2] = temp1
+        arr[r2][c2] = temp2
+        arr[r2][c1] = temp3
+    }
+    
     func cal_average(r1: Int, c1: Int, r2: Int, c2: Int) {
         for i in r1...r2 {
             for j in c1...c2 {
@@ -69,7 +81,11 @@ else {
     
     var result = [[Int]]()
     for (r1, c1, r2, c2) in infos {
-        move_circle(r1: r1, c1: c1, r2: r2, c2: c2)
+        if r2-r1 >= 2 || c2 - c1 >= 2 {
+            move_circle(r1: r1, c1: c1, r2: r2, c2: c2)
+        } else {
+            move(r1: r1, c1: c1, r2: r2, c2: c2)
+        }
         
         result = arr
         cal_average(r1: r1, c1: c1, r2: r2, c2: c2)
