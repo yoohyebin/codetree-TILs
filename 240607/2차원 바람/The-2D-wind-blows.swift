@@ -21,24 +21,25 @@ else {
     }
     
     func move_circle(r1: Int, c1: Int, r2: Int, c2: Int) {
-        let temp1 = arr[r1][c1]
-        let temp2 = arr[r1][c2]
-        let temp3 = arr[r2][c2]
-        let temp4 = arr[r2][c1]
+        let temp = arr[r1][c1]
         
-        arr[r1][c1+1...c2] = [temp1] + arr[r1][c1+1..<c2]
-        
-        for i in stride(from: r1+2, through: r2, by: 1) {
-            arr[i][c2] = arr[i-1][c2]
+        for r in r1..<r2 {
+            arr[r][c1] = arr[r+1][c1]
         }
-        arr[r1+1][c2] = temp2
         
-        arr[r2][c1..<c2] = arr[r2][c1+1..<c2] + [temp3]
-        
-        for i in stride(from: r1, to: r2-1, by: 1) {
-            arr[i][c1] = arr[i+1][c1]
+        for c in c1..<c2 {
+            arr[r2][c] = arr[c2][c+1]
         }
-        arr[r2-1][c1] = temp4
+        
+        for r in stride(from: r2, to: r1, by: -1) {
+            arr[r][c2] = arr[r-1][c2]
+        }
+        
+        for c in stride(from: c2, to: c1, by: -1) {
+            arr[r1][c] = arr[r1][c-1]
+        }
+        
+        arr[r1][c1+1] = temp
     }
     
     func cal_average(r1: Int, c1: Int, r2: Int, c2: Int) {
@@ -75,8 +76,8 @@ else {
         
         result = arr
         cal_average(r1: r1, c1: c1, r2: r2, c2: c2)
-
-         arr = result
+        
+        arr = result
     }
     
     for i in 0..<n {
