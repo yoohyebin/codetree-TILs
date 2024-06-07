@@ -6,6 +6,13 @@ for _ in 0..<n {
     arr.append(readLine()!.split(separator: " ").map{Int(String($0))!})
 }
 
+if q == 0 {
+    for i in 0..<n {
+        print(arr[i].map{String($0)}.joined(separator: " "))
+    }
+    
+    continue
+}
 var infos = [(r1: Int, c1: Int, r2: Int, c2: Int)]()
 
 for _ in 0..<q {
