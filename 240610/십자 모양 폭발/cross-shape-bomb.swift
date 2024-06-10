@@ -26,8 +26,14 @@ arr[x][y] = 0
 for i in 0..<n {
     for j in stride(from: n-1, to: 0, by: -1) {
         if arr[j][i] == 0 {
-            arr[j][i] = arr[j-1][i]
-            arr[j-1][i] = 0
+            for k in stride(from: j-1, through: 0, by: -1) {
+                if arr[k][i] != 0{
+                    arr[j][i] = arr[k][i]
+                    arr[k][i] = 0
+                    
+                    break
+                }
+            }
         }
     }
 }
