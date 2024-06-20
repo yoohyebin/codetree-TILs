@@ -9,8 +9,7 @@ for _ in 0..<n {
 
 func down() {
     var next = Array(repeating: Array(repeating: 0, count: n), count: n)
-    
-    //내리기
+
     for j in 0..<n {
         var next_row = n-1
         
@@ -26,7 +25,6 @@ func down() {
 }
 
 func bomb() {
-    //폭탄
     for j in 0..<n {
         var prev = arr[0][j], firstIndex = 0, cnt = 1
         
@@ -70,9 +68,11 @@ func rotate() {
     down()
 }
 
+
+bomb()
 for _ in 0..<k {
-    bomb()
     rotate()
+    bomb()
 }
 
 var result = 0
