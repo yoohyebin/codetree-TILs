@@ -1,3 +1,4 @@
+import Foundation
 let n = Int(readLine()!)!
 let rc = readLine()!.split(separator: " ").map{Int(String($0))!}
 var (r,c) = (rc[0]-1, rc[1]-1)
