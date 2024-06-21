@@ -7,32 +7,52 @@ for _ in 0..<n {
     arr.append(readLine()!.map{String($0)})
 }
 
-let dx = [0, -1, 0, 1], dy = [1, 0, -1, 0]
+let dx = [0, 1, 0, -1], dy = [1, 0, -1, 0]
 var dir = 0
 var result = 0
+var visited = Array(repeating: Array(repeating: Array(repeating: false, count: 4), count: n), count: n)
 
-while true {
-    if r+dx[dir] < 0 || r+dx[dir] >= n || c+dy[dir] < 0 || c+dy[dir] >= n {
-        result += 1
-        break
+func in_range(_ x: Int, _ y: Int) -> Bool {
+    return x >= 0 && x < n && y >= 0 && y < n
+}
+
+func simulate() {
+    if visited[r][c][dir] {
+        print(-1)
+        return
     }
     
-    if arr[r+dx[dir]][c+dy[dir]] == "#" {
-        dir += 1
-    } else {
-        let next_dir = (3+dir)%4
-        
-        if arr[r+dx[dir]+dx[next_dir]][c+dy[dir]+dy[next_dir]] != "#" {
-            r += dx[dir]
-            c += dy[dir]
-            result += 1
-            dir = next_dir
-        }
-        
-        r += dx[dir]
-        c += dy[dir]
+    visited[r][c][dir] = true
+    let (nx, ny) = (r+dx[dir], c+dy[dir])
+    
+    if in_range(nx, ny), arr[nx][ny] == "#" {
+        dir = (3+dir)%4
+    } else if !in_range(nx, ny) {
+        r = nx
+        c = ny
         result += 1
+        
+        return
+    } else {
+        let rx = nx + dx[(dir+1)%4]
+        let ry = ny + dy[(dir+1)%4]
+        
+        if in_range(rx, ry), arr[rx][ry] == "#" {
+            r = nx
+            c = ny
+            result += 1
+        } else {
+            r = rx
+            c = ry
+            dir = (dir+1)%4
+            result += 2
+        }
     }
+}
+
+
+while in_range(r, c) {
+    simulate()
 }
 
 print(result)
