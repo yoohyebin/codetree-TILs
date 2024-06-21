@@ -6,7 +6,7 @@ for _ in 0..<n {
     arr.append(readLine()!.split(separator: " ").map{Int(String($0))!})
 }
 
-let dx = [1, -1, 0, 0], dy = [0, 0, -1, 1]
+let dx = [-1, 1, 0, 0], dy = [0, 0, -1, 1]
 var result = [arr[r][c]]
 
 while true {
