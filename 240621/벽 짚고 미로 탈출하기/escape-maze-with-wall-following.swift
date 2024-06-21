@@ -19,7 +19,7 @@ func in_range(_ x: Int, _ y: Int) -> Bool {
 func simulate() {
     if visited[r][c][dir] {
         print(-1)
-        return
+        exit(0)
     }
     
     visited[r][c][dir] = true
