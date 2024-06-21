@@ -13,6 +13,10 @@ for i in 0..<n-1 {
     }
 }
 
-for i in 0..<n {
-    print(arr[i].map{String($0)}.joined(separator: " "))
+if n == 1 {
+    print(1)
+} else {
+    for i in 0..<n {
+        print(arr[i].map{String($0)}.joined(separator: " "))
+    }
 }
