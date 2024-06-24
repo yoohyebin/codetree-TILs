@@ -4,16 +4,17 @@ var arr = Array(repeating: Array(repeating: 0, count: n), count: n)
 arr[r][c] = 1
 
 let dx = [-1, 0, 1, 0], dy = [0, 1, 0, -1]
+var dist = 1
 
-for i in 1...m {
+for _ in 1...m {
     var visited = Array(repeating: Array(repeating: false, count: n), count: n)
     
     for x in 0..<n {
         for y in 0..<n {
             if !visited[x][y], arr[x][y] == 1{
                 for d in 0..<4 {
-                    let nx = dx[d]*i + x
-                    let ny = dy[d]*i + y
+                    let nx = dx[d]*dist + x
+                    let ny = dy[d]*dist + y
                     
                     if nx>=0, nx<n, ny>=0, ny<n, arr[nx][ny] == 0   {
                         arr[nx][ny] = 1
@@ -23,6 +24,7 @@ for i in 1...m {
             }
         }
     }
+    dist *= 2
 }
 
 var result = 0
