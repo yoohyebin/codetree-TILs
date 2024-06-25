@@ -1,12 +1,12 @@
 let t = Int(readLine()!)!
 var (n,m) = (0,0)
 var result = [Int]()
-let dx = [-1, 1, 0, 0], dy = [0 , 0, 1, -1]
+let dx = [-1, 0, 0, 1], dy = [0 , 1, -1, 0]
 let dirMap = [
     "U": 0,
-    "D": 1,
-    "R": 2,
-    "L": 3
+    "R": 1,
+    "L": 2,
+    "D": 3
 ]
 
 func move(_ x: Int, _ y: Int, _ d: Int) -> (x: Int, y: Int, d: Int) {
