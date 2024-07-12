@@ -11,17 +11,16 @@ for _ in 0..<m {
 }
 
 for _ in 0..<t {
-    
     for i in 0..<marbles.count {
         let nx = marbles[i].x + dx[marbles[i].d]
         let ny = marbles[i].y + dy[marbles[i].d]
         
         if nx<0 || nx>=n || ny<0 || ny>=n {
             marbles[i].d = (marbles[i].d+2)%4
+        } else {
+            marbles[i].x = nx
+            marbles[i].y = ny
         }
-        
-        marbles[i].x += dx[marbles[i].d]
-        marbles[i].y += dy[marbles[i].d]
     }
     
     var visited = Array(repeating: Array(repeating: false, count: n), count: n)
