@@ -3,16 +3,16 @@ let (n,m,t) = (input[0], input[1], input[2])
 
 let dx = [-1, 0, 1, 0], dy = [0, 1, 0 ,-1]
 let dirMap = ["U": 0, "R": 1, "D": 2, "L": 3]
-var marbles = [(r: Int, c: Int, d: Int, w: Int)]()
+var marbles = [(r: Int, c: Int, d: Int, w: Int, idx: Int)]()
 
-for _ in 0..<m {
+for i in 1...m {
     let data = readLine()!.split(separator: " ").map{String($0)}
-    marbles.append((Int(data[0])!-1, Int(data[1])!-1, dirMap[data[2]]!, Int(data[3])!))
+    marbles.append((Int(data[0])!-1, Int(data[1])!-1, dirMap[data[2]]!, Int(data[3])!, i))
 }
 
 
 for _ in 0..<t {
-    var grid = Array(repeating: Array(repeating: [(d: Int, w: Int)](), count: n), count: n)
+    var grid = Array(repeating: Array(repeating: [(d: Int, w: Int, idx: Int)](), count: n), count: n)
     
     for i in 0..<marbles.count {
         let nx = marbles[i].r + dx[marbles[i].d]
@@ -25,17 +25,17 @@ for _ in 0..<t {
             marbles[i].c = ny
         }
         
-        grid[marbles[i].r][ marbles[i].c].append((marbles[i].d, marbles[i].w))
+        grid[marbles[i].r][ marbles[i].c].append((marbles[i].d, marbles[i].w,  marbles[i].idx))
     }
     
-    var newMarbles = [(r: Int, c: Int, d: Int, w: Int)]()
+    var newMarbles = [(r: Int, c: Int, d: Int, w: Int, idx: Int)]()
     
     for i in 0..<n {
         for j in 0..<n {
             if !grid[i][j].isEmpty {
-                let maxDir = grid[i][j].max(by: {$0.w < $1.w})!.d
+                let maxValue = grid[i][j].max(by: {$0.idx < $1.idx})!
                 let sum = grid[i][j].reduce(0){$0 + $1.w}
-                newMarbles.append((i, j, maxDir, sum))
+                newMarbles.append((i, j, maxValue.d, sum, maxValue.idx))
             }
         }
     }
