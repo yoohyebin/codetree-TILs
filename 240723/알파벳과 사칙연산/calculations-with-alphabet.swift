@@ -10,10 +10,10 @@ for i in 0..<input.count {
 }
 
 func cal() -> Int {
-    var sum = alphabetNum[input[0]] ?? 0
+    guard var sum = alphabetNum[input[0]] else {return 0}
     
     for idx in stride(from: 1, to: input.count, by: 2) {
-        let num = alphabetNum[input[idx+1]] ?? 0
+        guard var num = alphabetNum[input[idx+1]] else {return 0}
         
         switch input[idx] {
         case "+":
@@ -36,13 +36,11 @@ func solution(_ cnt: Int, _ num: Int) {
         return
     }
     
-    alphabetNum[alphabet[cnt]] = num
-    
     for i in 1...4 {
+        alphabetNum[alphabet[cnt]] = num
         solution(cnt+1, i)
+        alphabetNum[alphabet[cnt]] = nil
     }
-
-    alphabetNum[alphabet[cnt]] = nil
 }
 
 for i in 1...4 {
