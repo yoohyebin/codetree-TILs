@@ -41,6 +41,8 @@ func solution(_ cnt: Int, _ num: Int) {
     for i in 1...4 {
         solution(cnt+1, i)
     }
+
+    alphabetNum[alphabet[cnt]] = nil
 }
 
 for i in 1...4 {
