@@ -13,7 +13,7 @@ func cal() -> Int {
     guard var sum = alphabetNum[input[0]] else {return 0}
     
     for idx in stride(from: 1, to: input.count, by: 2) {
-        guard var num = alphabetNum[input[idx+1]] else {return 0}
+        guard let num = alphabetNum[input[idx+1]] else {return 0}
         
         switch input[idx] {
         case "+":
@@ -30,21 +30,20 @@ func cal() -> Int {
     return sum
 }
 
-func solution(_ cnt: Int, _ num: Int) {
+func solution(_ cnt: Int) {
     if cnt == alphabet.count {
         result = max(result, cal())
         return
     }
     
+    
     for i in 1...4 {
-        alphabetNum[alphabet[cnt]] = num
-        solution(cnt+1, i)
+        alphabetNum[alphabet[cnt]] = i
+        solution(cnt+1)
         alphabetNum[alphabet[cnt]] = nil
     }
 }
-
-for i in 1...4 {
-    solution(0, i)
-}
+                 
+solution(0)
 
 print(result)
