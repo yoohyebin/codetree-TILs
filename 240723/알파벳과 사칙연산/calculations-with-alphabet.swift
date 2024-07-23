@@ -1,7 +1,7 @@
 let input = readLine()!.map{String($0)}
 var alphabet = [String]()
 var alphabetNum = [String: Int]()
-var result = 0
+var result = Int.min
 
 for i in 0..<input.count {
     if i%2 == 0, !alphabet.contains(input[i]){
