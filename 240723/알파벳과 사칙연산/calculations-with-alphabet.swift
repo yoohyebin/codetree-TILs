@@ -1,24 +1,21 @@
 let input = readLine()!.map{String($0)}
 var alphabet = [String]()
 var alphabetNum = [String: Int]()
-var op = [String]()
 var result = 0
 
 for i in 0..<input.count {
-    if i%2 == 0 {
+    if i%2 == 0, !alphabet.contains(input[i]){
         alphabet.append(input[i])
-    } else {
-        op.append(input[i])
     }
 }
 
 func cal() -> Int {
-    var sum = alphabetNum[alphabet[0]] ?? 0
+    var sum = alphabetNum[input[0]] ?? 0
     
-    for (idx, o) in op.enumerated() {
-        let num = alphabetNum[alphabet[idx+1]] ?? 0
+    for idx in stride(from: 1, to: input.count, by: 2) {
+        let num = alphabetNum[input[idx+1]] ?? 0
         
-        switch o {
+        switch input[idx] {
         case "+":
             sum += num
         case "-":
@@ -29,7 +26,7 @@ func cal() -> Int {
             break
         }
     }
-
+    
     return sum
 }
 
