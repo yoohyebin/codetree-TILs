@@ -1,29 +1,28 @@
 let input = readLine()!.split(separator: " ").map{Int(String($0))!}
 let (n, m ,k) = (input[0], input[1], input[2])
 var arr = readLine()!.split(separator: " ").map{Int(String($0))!}
-var selected = [Int]()
+var selected = Array(repeating: 1, count: k)
 var result = 0
 
 func cal() -> Int {
-    var scoreBoard = Array(repeating: 0, count: k+1)
-    
-    for i in 0..<n {
-        scoreBoard[selected[i]] += arr[i]
-    }
-    
-    return scoreBoard.filter{$0 >= m-1}.count
+    return selected.filter{$0 >= m}.count
 }
 
 func solution(_ cnt: Int) {
+    result = max(result, cal())
+    
     if cnt == n {
-        result = max(result, cal())
         return
     }
     
-    for i in 1...k {
-        selected.append(i)
+    for i in 0..<k {
+        if selected[i] >= m {
+            continue
+        }
+
+        selected[i] += arr[cnt]
         solution(cnt+1)
-        selected.removeLast()
+        selected[i] -= arr[cnt]
     }
 }
 
