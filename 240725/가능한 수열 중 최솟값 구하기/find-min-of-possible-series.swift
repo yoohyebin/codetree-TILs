@@ -4,28 +4,37 @@ let n = Int(readLine()!)!
 var values = [Int]()
 var selected = [Int]()
 
-func cal(_ num: [Int]) {
-    for k in stride(from: 1, through: n/2, by: 1) {
-        for i in 0..<n-k {
-            if selected[i..<i+k] == selected[i+k..<i+2*k] {
-                return
-            }
+func isPossible() -> Bool {
+    var len = 1
+    
+    while true {
+        let (s1, e1) = (selected.count - len,  selected.count-1)
+        let (s2, e2) = (s1-len, s1-1)
+        
+        if s2 < 0 {
+            break
         }
+        
+        if selected[s1...e1] == selected[s2...e2] {
+            return false
+        }
+        len += 1
     }
     
-    print(selected.map{String($0)}.joined())
-    exit(0)
+    return true
 }
 
 func solution(_ cnt: Int) {
     if cnt == n {
-        cal(selected)
-        return
+        print(selected.map{String($0)}.joined())
+        exit(0)
     }
     
     for i in 4...6 {
         selected.append(i)
-        solution(cnt+1)
+        if isPossible() {
+            solution(cnt+1)
+        }
         selected.removeLast()
     }
 }
