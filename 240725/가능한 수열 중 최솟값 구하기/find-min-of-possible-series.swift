@@ -5,7 +5,7 @@ var values = [Int]()
 var selected = [Int]()
 
 func cal(_ num: [Int]) {
-    for k in 1...n/2 {
+    for k in stride(from: 1, through: n/2, by: 1) {
         for i in 0..<n-k {
             if selected[i..<i+k] == selected[i+k..<i+2*k] {
                 return
