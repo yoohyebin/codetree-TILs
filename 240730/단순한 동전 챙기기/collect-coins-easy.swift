@@ -34,14 +34,17 @@ func solution(_ idx: Int, _ cnt: Int) {
     selected.removeLast()
 }
 
+for _ in 0..<n {
+    arr.append(readLine()!.map{String($0)})
+}
+
 for i in 0..<n {
-    let input = readLine()!.map{String($0)}
-    arr.append(input)
-    
-    if input.contains("S") {
-        start_pos = (i, input.firstIndex(of: "S") ?? 0)
-    } else if input.contains("E") {
-        start_pos = (i, input.firstIndex(of: "E") ?? 0)
+    for j in 0..<n {
+        if arr[i][j] == "S" {
+            start_pos = (i, j)
+        } else  if arr[i][j] == "E" {
+            end_pos = (i, j)
+        }
     }
 }
 
