@@ -1,13 +1,13 @@
 let n = Int(readLine()!)!
 let arr = readLine()!.split(separator: " ").map{Int(String($0))!}
-var selected = [Int]()
 var result = Int.max
+var visited = Array(repeating: false, count: 2*n)
 
 func cal() -> Int {
     var sum = 0
     
     for i in 0..<2*n {
-        if selected.contains(i) {
+        if visited[i] {
             sum += arr[i]
         } else {
             sum -= arr[i]
@@ -23,13 +23,13 @@ func solution(_ cnt: Int, _ idx: Int) {
         return
     }
     
-    if idx > n {
+    if idx == 2*n {
         return
     }
     
-    selected.append(idx)
+    visited[idx] = true
     solution(cnt+1, idx+1)
-    selected.removeLast()
+    visited[idx] = false
     
     solution(cnt, idx+1)
 }
