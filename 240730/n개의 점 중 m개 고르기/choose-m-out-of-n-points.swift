@@ -14,8 +14,10 @@ func cal() -> Int {
     var max_dist = 0
     
     for i in 0..<m-1 {
-        let dist = (selected[i][0]-selected[i+1][0])*(selected[i][0]-selected[i+1][0]) + (selected[i][1]-selected[i+1][1])*(selected[i][1]-selected[i+1][1])
-        max_dist = max(max_dist, dist)
+        for j in i+1..<m {
+            let dist = (selected[i][0]-selected[j][0])*(selected[i][0]-selected[j][0]) + (selected[i][1]-selected[j][1])*(selected[i][1]-selected[j][1])
+            max_dist = max(max_dist, dist)
+        }
     }
     
     return max_dist
