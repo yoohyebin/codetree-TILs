@@ -4,7 +4,7 @@ var grid = [[Int]]()
 var visited = Array(repeating: Array(repeating: false, count: m), count: n)
 var dx = [-1, 1, 0, 0], dy = [0, 0, -1, 1]
 var maxValue = 0
-var answer_k = 0, max_zone_num = 0
+var answer_k = 1, max_zone_num = 0
 var num = 0
 
 
