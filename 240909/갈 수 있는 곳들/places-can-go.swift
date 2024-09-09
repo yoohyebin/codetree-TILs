@@ -33,6 +33,7 @@ func bfs(){
 }
 
 for start in starts {
+    visited[start[0]][start[1]] = true
     queue.append((start[0], start[1]))
     bfs()
 }
