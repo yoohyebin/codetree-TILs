@@ -1,6 +1,5 @@
 let n = Int(readLine()!)!
 var dp = Array(repeating: 0, count: 1001)
-dp[0] = 1
 dp[2] = 1
 dp[3] = 1
 
