@@ -10,7 +10,7 @@ for i in 1...n {
             continue
         }
         
-        if j+arr[i] >= i {
+        if j+arr[j] >= i {
             dp[i] = max(dp[i], dp[j]+1)
         }
     }
