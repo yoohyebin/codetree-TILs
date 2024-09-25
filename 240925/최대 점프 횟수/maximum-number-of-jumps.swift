@@ -4,7 +4,7 @@ var dp = Array(repeating: -1, count: n)
 
 dp[0] = 0
 
-for i in 1...n {
+for i in 1..<n {
     for j in 0..<i {
         if dp[j] == -1 {
             continue
