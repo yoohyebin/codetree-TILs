@@ -7,9 +7,9 @@ dp[0] = 0
 for i in 1...m {
     for j in 0..<n {
         if i >= coins[j] {
-            dp[i] = min(dp[i], dp[i-coins[j]])
+            dp[i] = min(dp[i], dp[i-coins[j]] + 1)
         }
     }
 }
 
-print(dp[m] == Int.max ? -1 : dp[m])
+print(dp[m] == 10001 ? -1 : dp[m])
