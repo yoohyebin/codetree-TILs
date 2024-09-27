@@ -13,6 +13,7 @@ for q in questions {
         for i in stride(from: q, through: 1, by: -1) {
             if set.contains(i) {
                 result = set.remove(i) ?? 0
+                arr.remove(at: arr.firstIndex(of: i) ?? 0)
                 break
             }
         }
