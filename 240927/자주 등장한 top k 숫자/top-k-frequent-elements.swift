@@ -9,9 +9,9 @@ for e in arr {
 
 let keys = dict.sorted(by: {
     if $0.value == $1.value {
-        $0.key > $1.key
+        return $0.key > $1.key
     } else {
-        $0.value > $1.value
+        return $0.value > $1.value
     }
 }).map{$0.key}
 
