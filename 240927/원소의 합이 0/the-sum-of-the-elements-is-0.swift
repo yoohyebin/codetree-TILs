@@ -16,7 +16,7 @@ for i in 0..<n {
 
 for i in 0..<n {
     for j in 0..<n {
-        let diff = arrC[i] - arrD[j]
+        let diff = -arrC[i] - arrD[j]
         
         if let val = dict[diff] {
             result += val
