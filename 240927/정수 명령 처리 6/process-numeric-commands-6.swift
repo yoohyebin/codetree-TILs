@@ -117,7 +117,7 @@ struct PriorityQueue<T> {
 
 let n = Int(readLine()!)!
 
-var pQueue = PriorityQueue<Int>(sort: <)
+var pQueue = PriorityQueue<Int>(sort: >)
 
 for _ in 0..<n {
     let input = readLine()!.split(separator: " ").map{String($0)}
