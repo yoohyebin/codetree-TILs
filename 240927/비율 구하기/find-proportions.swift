@@ -1,3 +1,5 @@
+import Foundation 
+
 let n = Int(readLine()!)!
 var dict = [String: Int]()
 
