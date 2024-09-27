@@ -19,7 +19,7 @@ for _ in 0..<n {
         if dict.isEmpty {
             print("None")
         } else {
-            let sorted = dict.sorted(by: {$0.key > $1.key}).map{String($0.value)}
+            let sorted = dict.sorted(by: {$0.key < $1.key}).map{String($0.value)}
             print(sorted.joined(separator: " "))
         }
     }
