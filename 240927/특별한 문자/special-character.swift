@@ -1,13 +1,18 @@
 let words = readLine()!.map{String($0)}
 var dict = [String: Int]()
 
-for (i, s) in words.enumerated() {
-    if dict[s] != nil {
-        dict[s] = Int.max
-    } else {
-        dict[s] = i
-    }
+for s in words {
+    dict[s, default: 0] += 1
 }
 
-let result = dict.filter{$0.value == dict.values.min()}.keys.first ?? "None"
-print(result)
+
+if dict.values.contains(1) {
+    for s in words {
+        if dict[s] == 1 {
+            print(s)
+            break
+        }
+    }
+} else {
+    print("None")
+}
