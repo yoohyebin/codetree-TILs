@@ -9,9 +9,8 @@ for i in arr {
 }
 
 for i in arr {
-    result += ((dict[abs(i - k)] ?? 0) * (dict[i] ?? 0))
-    dict[abs(i - k)] = 0
-    dict[i] = 0
+    result += (dict[abs(i - k)] ?? 0)
+    dict[i, default: 0] -= 1
 }
 
 print(result)
