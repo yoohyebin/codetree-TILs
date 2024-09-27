@@ -8,8 +8,11 @@ for e in arr {
 }
 
 let keys = dict.sorted(by: {
-    $0.value > $1.value
-}).map{String($0.key)}
+    if $0.value == $1.value {
+        $0.key > $1.key
+    } else {
+        $0.value > $1.value
+    }
+}).map{$0.key}
 
-
-print(keys[0..<k].joined(separator: " "))
+print(keys[0..<k].map{String($0)}.joined(separator: " "))
