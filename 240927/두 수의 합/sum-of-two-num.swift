@@ -10,6 +10,8 @@ for i in arr {
 
 for i in arr {
     result += ((dict[abs(i - k)] ?? 0) * (dict[i] ?? 0))
+    dict[abs(i - k)] = 0
+    dict[i] = 0
 }
 
-print(result/2)
+print(result)
