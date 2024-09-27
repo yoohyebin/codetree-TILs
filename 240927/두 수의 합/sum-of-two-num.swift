@@ -5,12 +5,13 @@ var dict = [Int: Int]()
 var arr = readLine()!.split(separator: " ").map{Int(String($0))!}
 
 for i in arr {
-    dict[i, default: 0] += 1
-}
+    let diff = k-i
 
-for i in arr {
-    result += (dict[abs(i - k)] ?? 0)
-    dict[i, default: 0] -= 1
+    if let val = dict[diff] {
+        result += val
+    }
+
+    dict[i, default: 0] += 1
 }
 
 print(result)
