@@ -69,9 +69,10 @@ struct Heap<T> {
                 return
             }
             
-            elements[parentIndex] = elements[candidateIndex]
+            elements.swapAt(parentIndex, candidateIndex)
             parentIndex = candidateIndex
         }
+        elements[parentIndex] = parent
     }
     
     private func parentIndex(of index: Int) -> Int {
@@ -126,13 +127,13 @@ for _ in 0..<n {
     case "push":
         pQueue.enqueue(Int(input[1]) ?? 0)
     case "pop":
-        print(pQueue.dequeue() ?? 0)
+        print(pQueue.dequeue() ?? -1)
     case "size":
         print(pQueue.count)
     case "empty":
         print(pQueue.isEmpty ? "1" : "0")
     case "top":
-        print(pQueue.peek ?? 0)
+        print(pQueue.peek ?? -1)
     default:
          break
     }
