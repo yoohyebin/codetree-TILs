@@ -118,7 +118,15 @@ struct PriorityQueue<T> {
 let nm = readLine()!.split(separator: " ").map{Int(String($0))!}
 let (n,m) = (nm[0], nm[1])
 var pQueue = PriorityQueue<[Int]>(sort: {
-    abs($0[0])+abs($0[1]) < abs($1[0])+abs($1[1])
+    if abs($0[0])+abs($0[1]) == abs($1[0])+abs($1[1]) {
+        if $0[0] == $1[0] {
+            return $0[1] < $1[1]
+        } else {
+            return $0[0] < $1[0]
+        }
+    } else {
+        return abs($0[0])+abs($0[1]) < abs($1[0])+abs($1[1])
+    }
 })
 
 for _ in 0..<n {
