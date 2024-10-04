@@ -1,3 +1,5 @@
+import Foundation
+
 struct Heap<T> {
     private var elements: [T] = []
     private let priorityFunction: (T, T) -> Bool
@@ -127,7 +129,7 @@ for k in 1...n-2 {
         pQueue.enqueue(i)
     }
     
-    pQueue.dequeue() ?? 0
+    let _ = pQueue.dequeue()
     var sum = 0
     
     while !pQueue.isEmpty {
