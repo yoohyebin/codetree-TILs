@@ -121,22 +121,20 @@ struct PriorityQueue<T> {
 let n = Int(readLine()!)!
 let arr = readLine()!.split(separator: " ").map{Int(String($0))!}
 var result = 0.00
+var sum = 0
 
-for k in 1...n-2 {
-    var pQueue = PriorityQueue<Int>(sort: <)
+var pQueue = PriorityQueue<Int>(sort: <)
+pQueue.enqueue(arr[n-1])
+sum += arr[n-1]
 
-    for i in arr[k..<n] {
-        pQueue.enqueue(i)
-    }
+for i in stride(from: n-2, to: 0, by: -1) {
+    pQueue.enqueue(arr[i])
+    sum += arr[i]
     
-    let _ = pQueue.dequeue()
-    var sum = 0
+    let minValue = pQueue.peek ?? 0
+    let avg = Double(sum - minValue) / Double(n-i-1)
     
-    while !pQueue.isEmpty {
-        sum += pQueue.dequeue() ?? 0
-    }
-    
-    result = max(result, Double(sum)/Double(n-k-1))
+    result = max(result, avg)
 }
 
 print(String(format: "%.2f", result))
