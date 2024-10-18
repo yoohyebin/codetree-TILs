@@ -1,11 +1,10 @@
 let nq = readLine()!.split(separator: " ").map{Int(String($0))!}
 let (n,q) = (nq[0], nq[1])
-let arr = readLine()!.split(separator: " ").map{Int(String($0))!}
 var pin = Array(repeating: 0, count: 1000001)
 var sumArray = Array(repeating: 0, count: 1000001)
 var results = [String]()
 
-for a in arr {
+for a in readLine()!.split(separator: " ").map({Int(String($0))!}) {
     pin[a] = 1
 }
 
